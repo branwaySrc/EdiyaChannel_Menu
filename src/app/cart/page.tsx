@@ -4,7 +4,7 @@ import { useCart } from "@/components/controllers/context/cartContext";
 import FixedBottomButtonEl from "@/components/primitives/FixedBottomButton.ele";
 import NavigationSection from "@/components/ui/global/sections/Navigation.section";
 import Image from "next/image";
-import Link from "next/link";
+
 import { useRouter } from "next/navigation";
 
 export default function CartPage() {
@@ -22,7 +22,6 @@ export default function CartPage() {
 	return (
 		<>
 			<NavigationSection title={"내 주문표"} />
-
 			<main>
 				<>
 					<ul className="flex flex-col gap-6 p-4 mt-8">
