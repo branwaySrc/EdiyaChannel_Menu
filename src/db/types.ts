@@ -5,7 +5,7 @@ export interface ProductOptionType {
 	optionValues: ProductOptionValueType[];
 }
 
-type ProductOptionValueType = {
+export type ProductOptionValueType = {
 	optionName: string;
 	cost: number | string;
 };

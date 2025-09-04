@@ -18,12 +18,16 @@ export const COFFEE_DB: MenuType[] = [
 				optionValues: [
 					{ optionName: "Regular", cost: 0 },
 					{ optionName: "Large", cost: 500 },
+					{ optionName: "Extra", cost: 1500 },
 				],
 			},
 			{
-				optionCategory: "Size",
+				optionCategory: "Add",
 				optionValues: [
-					{ optionName: "Regular", cost: 0 },
+					{ optionName: "샷추가", cost: 0 },
+					{ optionName: "Large", cost: 500 },
+					{ optionName: "Large", cost: 500 },
+					{ optionName: "Large", cost: 500 },
 					{ optionName: "Large", cost: 500 },
 				],
 			},

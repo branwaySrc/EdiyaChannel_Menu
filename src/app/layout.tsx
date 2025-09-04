@@ -6,6 +6,7 @@ import MobileSheetLayout from "@/components/ui/global/layouts/MobileSheet.layout
 import HeaderSection from "@/components/ui/global/sections/Header.section";
 import FooterSection from "@/components/ui/global/sections/Footer.section";
 import InnerSheetLayout from "@/components/ui/global/layouts/InnerSheet.layout";
+import { CartProvider } from "@/components/controllers/context/cartContext";
 
 const notoSansKR = Noto_Sans_KR({
 	variable: "--font-noto-sans-kr",
@@ -25,11 +26,13 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body className={`${notoSansKR} antialiased`}>
-				<MobileSheetLayout>
-					<HeaderSection header="이디야 월피동점" />
-					<InnerSheetLayout>{children}</InnerSheetLayout>
-					<FooterSection />
-				</MobileSheetLayout>
+				<CartProvider>
+					<MobileSheetLayout>
+						<HeaderSection header="이디야 월피동점" />
+						<InnerSheetLayout>{children}</InnerSheetLayout>
+						<FooterSection />
+					</MobileSheetLayout>
+				</CartProvider>
 			</body>
 		</html>
 	);

@@ -8,8 +8,8 @@ interface Props {
 export default function CategoryContentUI(props: Props) {
 	return (
 		<Product.List>
-			{props.categoryList.map(product => (
-				<Product.Card key={product.productId} {...product} />
+			{props.categoryList.map((product, index) => (
+				<Product.Card key={`${product.slug}-${index}`} {...product} />
 			))}
 		</Product.List>
 	);
