@@ -32,7 +32,7 @@ export default function Home() {
 			products = SNACK_DB;
 			break;
 		default:
-			[];
+			products = [];
 	}
 
 	return (

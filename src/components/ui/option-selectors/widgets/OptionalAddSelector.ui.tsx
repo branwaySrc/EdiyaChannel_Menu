@@ -10,8 +10,9 @@ interface Props {
 	onChange?: (selectedOptions: ProductOptionValueType[]) => void;
 }
 
-export default function OptionalAddSelectorUI(props: Props) {
-	const [selectedOptions, setSelectedOptions] = useState<boolean[]>(() => props.optionValues.map(() => false));
+export default function OptionalAddSelectorUI({ optionValues, onChange }: Props) {
+	const [selectedOptions, setSelectedOptions] = useState<boolean[]>(() => optionValues.map(() => false));
+
 	const handleToggle = (index: number) => {
 		setSelectedOptions(prev => {
 			const newSelected = [...prev];
@@ -21,21 +22,20 @@ export default function OptionalAddSelectorUI(props: Props) {
 	};
 
 	useEffect(() => {
-		if (!props.onChange) return;
+		if (!onChange) return;
+		const activeOptions = optionValues.filter((_, idx) => selectedOptions[idx]);
+		onChange(activeOptions);
+	}, [selectedOptions, optionValues, onChange]); // ✅ 구조 분해된 값만 deps에 넣음
 
-		const activeOptions = props.optionValues.filter((_, idx) => selectedOptions[idx]);
-		props.onChange(activeOptions);
-	}, [selectedOptions, props.optionValues, props.onChange]); // props 전체 X, 필요한 것만
-
-	if (!props.optionValues || props.optionValues.length === 0) return null;
+	if (!optionValues || optionValues.length === 0) return null;
 
 	return (
 		<>
 			<SelectorHeader header="추가 옵션" required={false} />
-			{props.optionValues.map((option, index) => (
+			{optionValues.map((option, index) => (
 				<label key={index} className="p-3 flex gap-3">
 					<input className="accent-blue-600 scale-150" type="checkbox" checked={selectedOptions[index]} onChange={() => handleToggle(index)} />
-					<div className="flex w-full justify-between gap-3 ">
+					<div className="flex w-full justify-between gap-3">
 						<span className="text-sm font-bold">{option.optionName}</span>
 						<Cost>{option.cost}</Cost>
 					</div>

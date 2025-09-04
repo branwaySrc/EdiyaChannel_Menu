@@ -8,6 +8,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 export default function CartPage() {
+	const router = useRouter();
 	const { cart, removeItem, updateQuantity } = useCart();
 	const total = cart.reduce((sum, item) => {
 		const sizeCost = item.size ? Number(item.size.cost || 0) : 0;
@@ -16,8 +17,6 @@ export default function CartPage() {
 	}, 0);
 
 	if (!cart) return null;
-
-	const router = useRouter();
 
 	return (
 		<>
