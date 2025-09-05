@@ -42,7 +42,7 @@ export default function CartPreviewPage() {
 		<main style={{ backgroundColor: "#fff" }}>
 			<NavigationSection title="주문표 만들기" />
 			{cart.length > 0 ? (
-				<div>
+				<div style={{ padding: "0.2rem" }}>
 					<header style={{ marginTop: "2.5rem", marginBottom: "0.5rem", padding: "0 0.5rem" }}>
 						<div style={{ fontWeight: "bold", fontSize: "1.125rem", marginBottom: "2rem" }}>이디야 월피동점</div>
 						<section style={{ padding: "0.75rem", backgroundColor: "#FAFAFAFF" }}>
